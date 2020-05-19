@@ -1,0 +1,6 @@
+.item-container__finished{
+    text-decoration: line-through;
+}
+.item-container__notfinished{
+    text-decoration: none;
+}
