@@ -5,3 +5,5 @@ export interface Todo{
 
 export type CheckedHandling = (elChecked:Todo)=>void
 export type AddTodo =(newTodo:string)=>void
+export type TodoCounter =()=>number
+export type DeleteTodo=()=>void

@@ -6,7 +6,7 @@ interface TodoFormProps{
 export const TodoForm :React.FC<TodoFormProps> = ({addTodo})=>{
     const [newTodo , setNewTodo] = useState("")
     const handlingNewTodo =(e:any)=>{
-        setNewTodo(e.traget.value)
+        setNewTodo(e.currentTarget.value)
     }
     const clickHandling =(e:any)=>{
         e.preventDefault()

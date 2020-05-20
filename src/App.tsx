@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Todo ,CheckedHandling, AddTodo} from './interfaces/todo';
+import { Todo ,CheckedHandling, AddTodo ,TodoCounter,DeleteTodo} from './interfaces/todo';
 import {TodoList} from "./components/todolist/TodoList"
 import { TodoForm } from './components/todoform/TodoForm';
+import { TodoCount } from './components/todoCount/TodoCount';
 const todos:Array<Todo> =[
    {name:"learn typescript" , isComplete:true} 
    ,{name:"learn Javascript" , isComplete:false}
@@ -23,16 +24,25 @@ export const App :React.FunctionComponent =()=>{
     }
     const addTodo:AddTodo =(newTodo)=>{
       const newtodo = singleTodo.push({
-        todo:newTodo,
+        name:newTodo,
         isComplete:false
-      })
+      }) 
       setSingleTodo(newtodo)
       console.log(singleTodo)
+    }
+    const deleteTodo:DeleteTodo =()=>{
+      // const newTodosAfterDelete = singleTodo.find((el,index)=>{
+      // })
+      // setSingleTodo(newTodosAfterDelete)
+    }
+    const todocount:TodoCounter=()=>{
+      return singleTodo.length
     }
    return (
       <div> 
         <TodoForm addTodo={addTodo} />
-       <TodoList todos={todos} checkedHandling ={checkedHandling}/>
+       <TodoList todos={todos} checkedHandling ={checkedHandling} deleteTodo={deleteTodo}/>
+       <TodoCount todoscount={todocount} />
       </div>
     )
   }
