@@ -1,5 +1,6 @@
 export interface Todo{
-    name:string;
+  id:string,  
+  name:string;
     isComplete:boolean;
   }
 
