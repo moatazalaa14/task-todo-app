@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Todo ,CheckedHandling, AddTodo} from './interfaces/todo';
+import { Todo ,CheckedHandling, AddTodo } from './interfaces/todo';
 import {TodoList} from "./components/todolist/TodoList"
 import {TodoForm} from "./components/todoform/TodoForm"
 import shortid from 'shortid';

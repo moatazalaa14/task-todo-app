@@ -2,8 +2,8 @@ import React from 'react'
 import "./Todoitem.css"
 import { Todo, CheckedHandling } from './../../interfaces/todo';
 interface TodoListItemProps {
-    todo:Todo ,
-    checkedHandling:CheckedHandling
+    todo:Todo ;
+    checkedHandling:CheckedHandling;
 }
 export  const TodoListItem:React.FunctionComponent<TodoListItemProps>=({todo,checkedHandling})=>{
    
