@@ -1,0 +1,11 @@
+.list_items{
+    display: grid;
+    grid-column: 1fr;
+    justify-items: center;
+}
+.list_items li{
+    list-style: none;
+    width: 20vw;
+    margin:.5rem 0 .5rem 0;
+
+}

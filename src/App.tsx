@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Todo ,CheckedHandling, AddTodo } from './interfaces/todo';
+import { Todo ,CheckedHandling, AddTodo,DeleteHandling } from './interfaces/todo';
 import {TodoList} from "./components/todolist/TodoList"
 import {TodoForm} from "./components/todoform/TodoForm"
 import shortid from 'shortid';
@@ -11,6 +11,10 @@ export const App :React.FunctionComponent =()=>{
      {id:shortid(),name:"learn jquery" , isComplete:false}
      ]
     const [singleTodo ,setSingleTodo]:any = useState(todos)
+    const deleteHandling:DeleteHandling=(deleteElem)=>{
+      let newTodos=singleTodo.filter((todo:Todo)=>{return todo.id!==deleteElem.id})
+      setSingleTodo(newTodos)
+    }
     const checkedHandling:CheckedHandling=(elChecked)=>{
       let newTodos= singleTodo.map((todo:Todo) =>{
         if(elChecked.id === todo.id){
@@ -32,7 +36,7 @@ export const App :React.FunctionComponent =()=>{
    return (
       <div className ="todoapp"> 
         <h1>My todos</h1>
-       <TodoList todos={singleTodo} checkedHandling ={checkedHandling}/>
+       <TodoList todos={singleTodo} checkedHandling={checkedHandling} deleteHandling={deleteHandling} />
        <TodoForm addTodo={addTodo}/>
       </div>
     )

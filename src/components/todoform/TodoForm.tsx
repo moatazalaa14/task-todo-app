@@ -18,7 +18,7 @@ export const TodoForm :React.FC<TodoFormProps> = ({addTodo})=>{
 return(
     <>
         <form>
-            <input type="string" onChange={handlingNewTodo} value={newTodo} className="todoapp__input"/>
+            <input type="string" onChange={handlingNewTodo} value={newTodo} placeholder="Add Todo item..." className="todoapp__input"/>
             <button onClick={clickHandling} className="todoapp__btn">Add this todo</button>
         </form>
 

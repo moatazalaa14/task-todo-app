@@ -1,11 +1,12 @@
 import React from 'react'
 import "./Todoitem.css"
-import { Todo, CheckedHandling } from './../../interfaces/todo';
+import { Todo, CheckedHandling,DeleteHandling } from './../../interfaces/todo';
 interface TodoListItemProps {
     todo:Todo ;
     checkedHandling:CheckedHandling;
+    deleteHandling:DeleteHandling;
 }
-export  const TodoListItem:React.FunctionComponent<TodoListItemProps>=({todo,checkedHandling})=>{
+export  const TodoListItem:React.FunctionComponent<TodoListItemProps>=({todo,checkedHandling,deleteHandling})=>{
    
       return(
           <>
@@ -16,6 +17,8 @@ export  const TodoListItem:React.FunctionComponent<TodoListItemProps>=({todo,che
                 type="checkbox"
                 defaultChecked={todo.isComplete}
                 onClick={()=> checkedHandling(todo)}/>
+                <button onClick={()=> deleteHandling(todo)}>X</button>
+                
             </label>
         </li>
 
