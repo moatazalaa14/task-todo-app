@@ -3,7 +3,7 @@ import { Todo ,CheckedHandling, AddTodo,DeleteHandling } from './interfaces/todo
 import {TodoList} from "./components/todolist/TodoList"
 import {TodoForm} from "./components/todoform/TodoForm"
 import shortid from 'shortid';
-import "./App.css"
+import bg from "./assets/bg-desktop-dark.jpg"
 export const App :React.FunctionComponent =()=>{
   const todos:Array<Todo> =[
      {id:shortid(),name:"learn typescript" , isComplete:true} 
@@ -30,14 +30,22 @@ export const App :React.FunctionComponent =()=>{
     }
     const addTodo:AddTodo=(todoVal)=>{
       let newTodo:Todo = {id:shortid(),name:todoVal,isComplete:false}
-     setSingleTodo([...singleTodo , newTodo])
+      if(newTodo.name!==""){
+        setSingleTodo([...singleTodo , newTodo])
+      }else{
+        alert("Not item Founded")
+      }
     }
     
    return (
-      <div className ="todoapp"> 
-        <h1>My todos</h1>
-       <TodoList todos={singleTodo} checkedHandling={checkedHandling} deleteHandling={deleteHandling} />
-       <TodoForm addTodo={addTodo}/>
+      <div className="bg-gray-800 w-screen h-screen"> 
+      <div style={{backgroundImage:`url(${bg})`, backgroundRepeat:"no-repeat"}}>
+       
+          <h1 className="text-white font-bold text-2xl pt-16 pb-8 text-center">My todos</h1>
+        
+          <TodoForm addTodo={addTodo}/>
+          <TodoList todos={singleTodo} checkedHandling={checkedHandling} deleteHandling={deleteHandling} />
+       </div>
       </div>
     )
   }

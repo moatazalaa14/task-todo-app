@@ -1,7 +1,6 @@
 import React from "react"
 import { Todo ,CheckedHandling,DeleteHandling} from './../../interfaces/todo';
 import { TodoListItem } from "../todoitem/TodoItem";
-import "./TodoList.css"
 interface TodoListProps {
     todos: Array<Todo>;
     checkedHandling: CheckedHandling;
@@ -11,7 +10,8 @@ interface TodoListProps {
 
   export const TodoList:React.FunctionComponent<TodoListProps> =({todos , checkedHandling,deleteHandling})=>{
     return(
-        <ul className="list_items">
+        <div className="flex justify-center mt-4 ">
+        <ul className=" w-1/2 shadow-xl bg-gray-800">
             {
                 todos.map((todo,index)=>{
                     return(
@@ -20,5 +20,6 @@ interface TodoListProps {
                 })
             }
         </ul>
+        </div>
     )
   }
